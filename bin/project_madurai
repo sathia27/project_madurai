@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'commander/import'
+require_relative '../lib/project_madurai'
+
+program :version, '0.0.1'
+program :description, 'Testing pm'
+ 
+command :extract do |c|
+  c.syntax = 'extract [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.option '--image STRING', String, 'cover page image'
+  c.action do |args, options|
+    options.default :image => 'public/image.jpg'
+    # Do something or c.when_called Pm::Commands::Project_mad
+    pm = Extractor.new options.image
+    pm.start
+  end
+end
+
