@@ -17,9 +17,7 @@ module CoverPageGenerator
       text.encoding = "Unicode"
       text.font = @font
       text.gravity = Magick::CenterGravity
-      puts @title
       @title  = @title.scan(/\S.{0,30}\S(?=\s|$)|\S+/).join("\n")
-      puts @title
       text.annotate(canvas, 450,300,0,0, @title) {
         self.fill = '#fff'
         self.pointsize = 30
@@ -29,8 +27,8 @@ module CoverPageGenerator
         self.pointsize = 22
       }
       titlize = @title.gsub(" ", "_").gsub("/", "_").gsub("\n", "_")
-      puts "Generating #{(pwd + "/pm/" + titlize + ".jpg")}"
-      canvas.write(pwd + "/pm/" + titlize + ".jpg")
+      puts "Generating '#{(pwd + "/project_madurai/" + titlize + ".jpg")}'"
+      canvas.write(pwd + "/project_madurai/" + titlize + ".jpg")
     end
   end
 end

@@ -4,8 +4,8 @@ require 'rubygems'
 require 'commander/import'
 require_relative '../lib/project_madurai'
 
-program :version, '0.0.1'
-program :description, 'Testing pm'
+program :version, '0.0.4'
+program :description, 'Generates cover page for project madurai'
  
 command :extract do |c|
   c.syntax = 'extract [options]'
@@ -14,7 +14,8 @@ command :extract do |c|
   c.example 'description', 'command example'
   c.option '--image STRING', String, 'cover page image'
   c.action do |args, options|
-    options.default :image => 'public/image.jpg'
+    public_folder = File.expand_path('../../public', __FILE__)
+    options.default :image => public_folder + '/image.jpg'
     # Do something or c.when_called Pm::Commands::Project_mad
     pm = Extractor.new options.image
     pm.start

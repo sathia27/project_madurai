@@ -8,7 +8,7 @@ class Extractor
   end
   def start
     details = ProjectMadurai::MetaData.new.list
-    Dir.mkdir("pm") rescue true
+    Dir.mkdir("project_madurai") rescue true
     details.each do |detail|
       CoverPageGenerator::Image.new(@image, detail[:title], detail[:author]).generate
     end
