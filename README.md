@@ -4,21 +4,15 @@ TODO: Write a gem description
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'project_madurai'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install project_madurai
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ project_madurai extract
+
+### if you have custom image to be shown
+    
+    $ project_madurai extract --image /path_of_image
 
 ## Contributing
 
