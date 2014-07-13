@@ -4,7 +4,7 @@ require 'rubygems'
 require 'commander/import'
 require_relative '../lib/project_madurai'
 
-program :version, '0.0.6'
+program :version, '0.0.7'
 program :description, 'Generates cover page for project madurai'
  
 command :extract do |c|

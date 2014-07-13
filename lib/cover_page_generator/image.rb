@@ -6,7 +6,6 @@ module CoverPageGenerator
       @title = title
       @author = author
       public_folder = File.expand_path('../../../public', __FILE__)
-      puts public_folder
       @font = "#{public_folder}/ta.ttf"
     end
 
