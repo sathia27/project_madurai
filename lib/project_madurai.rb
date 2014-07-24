@@ -11,12 +11,8 @@ class Extractor
     Dir.mkdir("project_madurai") rescue true
     image_index = 1
     details.each do |detail|
-      begin
-        puts CoverPageGenerator::Image.new(@image, detail[:title], detail[:author], image_index).generate
-        image_index+=1
-      rescue Interrupt
-        puts "Bye"
-      end
+      puts CoverPageGenerator::Image.new(@image, detail[:title], detail[:author], image_index).generate
+      image_index+=1
     end
   end
 end

@@ -21,7 +21,7 @@ module HtmlGenerator
             }
           </style>
         </head>
-        <body style='background:url(#{@bg}) no-repeat;text-align:center;color:#fff'>
+        <body style='background:url("#{@bg}") no-repeat;text-align:center;color:#fff'>
           <div style='padding:10px'>
             <h1 style="font-weight:bold">#{@title}</h1>
             <p style='position:absolute;width:100%;bottom:100px;font-size:25px;color:#a00'>#{@author}</p>
