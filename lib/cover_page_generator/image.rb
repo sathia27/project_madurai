@@ -16,7 +16,7 @@ module CoverPageGenerator
       @html_file.write(@html_content.to_html)
       @html_file.close
       system("phantomjs #{@public_folder}/phantomjs/rasterize.js #{@public_folder}/html_files/1.html project_madurai/#{@image_index}.jpg '450px*700px'")
-      "Generating project/madurai/#{@image_index}.jpg => #{title}"
+      "Generating project/madurai/#{@image_index}.jpg => #{@title}"
     end
   end
 end
