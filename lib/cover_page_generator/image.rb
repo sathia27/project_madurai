@@ -1,44 +1,22 @@
-require "RMagick"
+require_relative '../html_generator/html'
 module CoverPageGenerator
   class Image
-    def initialize file_name, title, author
+    def initialize file_name, title, author, image_index
       @file_name = file_name || "public/image.jpg"
       @title = title
       @author = author
-      public_folder = File.expand_path('../../../public', __FILE__)
-      @font = "#{public_folder}/tam.ttf"
-    end
-    
-    def image_text
-      text = Magick::Draw.new
-      text.encoding = "Unicode"
-      text.font = @font
-      text.gravity = Magick::CenterGravity
-      text
-    end
-
-    def annotate text, canvas
-      text.annotate(canvas, 450,300,0,0, @title) {
-        self.fill = '#fff'
-        self.pointsize = 30
-      }
-      text.annotate(canvas, 450,500,0,0, @author) {
-        self.fill = '#fff'
-        self.pointsize = 22
-      }
+      @public_folder = File.expand_path('../../../public', __FILE__)
+      @font = "#{@public_folder}/tam.ttf"
+      @html_content = HtmlGenerator::Html.new(@title, @author, @font, @file_name)
+      @html_file = File.open("#{@public_folder}/html_files/1.html", "w")
+      @image_index = image_index
     end
 
     def generate
-      pwd = Dir.pwd
-      img =  Magick::ImageList.new(@file_name)
-      canvas = Magick::ImageList.new
-      canvas.new_image(450, 700, Magick::TextureFill.new(img))
-      @title  = @title.scan(/\S.{0,30}\S(?=\s|$)|\S+/).join("\n")
-      text  = image_text
-      annotate text, canvas
-      titlize = @title.gsub(" ", "_").gsub("/", "_").gsub("\n", "_")
-      puts "Generating '#{(pwd + "/project_madurai/" + titlize + ".jpg")}'"
-      canvas.write(pwd + "/project_madurai/" + titlize + ".jpg")
+      @html_file.write(@html_content.to_html)
+      @html_file.close
+      system("phantomjs #{@public_folder}/phantomjs/rasterize.js #{@public_folder}/html_files/1.html project_madurai/#{@image_index}.jpg '450px*700px'")
+      "Generating project/madurai/#{@image_index}.jpg => @{title}"
     end
   end
 end

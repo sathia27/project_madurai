@@ -1,6 +1,15 @@
 # ProjectMadurai
 
-TODO: Write a gem description
+http://projectmadurai.org/pmworks.html
+
+Project madurai takes title and author of above url. it will create cover page image for each title and author.
+
+## How it works
+
+It takes all title and author from above url using Nokogiri. For each title and author, it create html file and take screenshot with help of phantomjs
+
+Currently we are using RMagick ( or other image processing tool )
+
 
 ## Installation
 
@@ -13,6 +22,20 @@ TODO: Write a gem description
 ### if you have custom image to be shown
     
     $ project_madurai extract --image /path_of_image
+
+
+## Demo
+
+#### Previous version with RMagick
+
+![alt text](public/sample1.jpg "Demo")
+
+#### Current version with PhantomJs
+
+![alt text](public/sample2.jpg "Demo")
+
+
+
 
 ## Contributing
 
