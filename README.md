@@ -8,7 +8,9 @@ Project madurai takes title and author of above url. it will create cover page i
 
 It takes all title and author from above url using Nokogiri. For each title and author, it create html file and take screenshot with help of phantomjs
 
-Currently we are using RMagick ( or other image processing tool )
+Previously I used RMagick ( or other image processing tool ) to create image. Font was not rendered properly with rmagick. See sample before. 
+
+If you faced same issue and you cracked it. Please guide us at sathia2704@gmail.com
 
 
 ## Installation
