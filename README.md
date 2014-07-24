@@ -15,6 +15,8 @@ If you faced same issue and you cracked it. Please guide us at sathia2704@gmail.
 
 ## Installation
 
+Requires ruby >= 1.9.3
+
 ### Installing Phantomjs. This is required*
 
 Check how to install from below link
