@@ -13,6 +13,13 @@ Currently we are using RMagick ( or other image processing tool )
 
 ## Installation
 
+### Installing Phantomjs. This is required*
+
+Check how to install from below link
+http://phantomjs.org/download.html
+
+### Install project_madurai gem
+
     $ gem install project_madurai
 
 ## Usage
